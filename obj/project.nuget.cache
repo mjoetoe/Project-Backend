@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+WSDjKUpdV8yrCulm54LN825mD4uQZxHlM1q7dpa59or3ibY2FTP6B7O7gHzxsfkp5yZj2kOMIn9xypp5CJt6w==",
+  "dgSpecHash": "pCOlQxQnwYsOhDxLfjEY4aclDoontXVqGHtBXHnsu2TeJaFZ57VhHP0JiZDiR2Cb0V/kOmJebqh4sISv+hTD+A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Douwe\\Documents\\GitHub\\Project-Backend\\Project-Backend.csproj",
+  "projectFilePath": "c:\\Users\\Douwe\\Documents\\GitHub\\Project-Backend\\Project-Backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Douwe\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\Douwe\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",

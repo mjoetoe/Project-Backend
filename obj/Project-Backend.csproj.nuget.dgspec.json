@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Douwe\\Documents\\GitHub\\Project-Backend\\Project-Backend.csproj": {}
+    "c:\\Users\\Douwe\\Documents\\GitHub\\Project-Backend\\Project-Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Douwe\\Documents\\GitHub\\Project-Backend\\Project-Backend.csproj": {
+    "c:\\Users\\Douwe\\Documents\\GitHub\\Project-Backend\\Project-Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Douwe\\Documents\\GitHub\\Project-Backend\\Project-Backend.csproj",
+        "projectUniqueName": "c:\\Users\\Douwe\\Documents\\GitHub\\Project-Backend\\Project-Backend.csproj",
         "projectName": "Project-Backend",
-        "projectPath": "C:\\Users\\Douwe\\Documents\\GitHub\\Project-Backend\\Project-Backend.csproj",
+        "projectPath": "c:\\Users\\Douwe\\Documents\\GitHub\\Project-Backend\\Project-Backend.csproj",
         "packagesPath": "C:\\Users\\Douwe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Douwe\\Documents\\GitHub\\Project-Backend\\obj\\",
+        "outputPath": "c:\\Users\\Douwe\\Documents\\GitHub\\Project-Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
