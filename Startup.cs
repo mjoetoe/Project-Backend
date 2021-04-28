@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Project_Backend.Configuration;
+using Project_Backend.Data;
 
 namespace Project_Backend
 {
@@ -26,12 +28,18 @@ namespace Project_Backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.Configure<ConnectionStrings>(Configuration.GetSection("ConnectionStrings"));
+            
+            services.AddDbContext<MovieContext>();
 
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Project_Backend", Version = "v1" });
             });
+
+            
             services.AddCors(options =>
             {
                 options.AddPolicy("AnyOrigin", builder =>

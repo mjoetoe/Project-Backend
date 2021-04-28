@@ -3,11 +3,30 @@
 version: '3.4'
 
 services:
-  projectbackend:
+  db:
+    image: 'mcr.microsoft.com/mssql/server'
+    environment:
+      SA_PASSWORD: '<YourNewStrong@Passw0rd>'
+      ACCEPT_EULA: 'Y'
+    ports:
+      - 1433:1433
+    volumes:
+      - C:\db\data:/var/opt/mssql/data
+  api:
     image: projectbackend
     build:
       context: .
       dockerfile: ./Dockerfile
+    environment:
+      - ASPNETCORE_URLS=http://+:5000;https://+:5001
+      - ASPNETCORE_ENVIRONMENT=Docker
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=SUPER_SECRET_PASSWORD
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
     ports:
-      - 5000
-      - 5001
+      - 5000:5000
+      - 5001:5001
+    depends_on: 
+      - db
+    volumes:
+      - ~/.vsdbg:/remote_debugger:rw
+      - .aspnet/https:/https
