@@ -10,7 +10,7 @@ using Project_Backend.Data;
 namespace Project_Backend.Migrations
 {
     [DbContext(typeof(MovieContext))]
-    [Migration("20210428131144_first")]
+    [Migration("20210429161555_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -23,12 +23,13 @@ namespace Project_Backend.Migrations
 
             modelBuilder.Entity("Project_Backend.Models.Director", b =>
                 {
-                    b.Property<Guid>("ID")
+                    b.Property<int>("DirectorId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<decimal>("Age")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
@@ -36,22 +37,22 @@ namespace Project_Backend.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("DirectorId");
 
                     b.ToTable("Directors");
 
                     b.HasData(
                         new
                         {
-                            ID = new Guid("4cb2fbc9-7a84-43ad-af49-a15dae7b4506"),
-                            Age = 25m,
+                            DirectorId = 1,
+                            Age = 25,
                             LastName = "Spielberg",
                             Name = "Steven"
                         },
                         new
                         {
-                            ID = new Guid("071e2e1a-f7f0-47dc-a653-3fe758724554"),
-                            Age = 50m,
+                            DirectorId = 2,
+                            Age = 50,
                             LastName = "Nolan",
                             Name = "Christopher"
                         });
@@ -59,23 +60,37 @@ namespace Project_Backend.Migrations
 
             modelBuilder.Entity("Project_Backend.Models.DirectorMovies", b =>
                 {
-                    b.Property<Guid>("DirectorID")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("MoviesId")
+                        .HasColumnType("int");
 
-                    b.Property<Guid>("MovieID")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<int>("DirectorId")
+                        .HasColumnType("int");
+
+                    b.HasKey("MoviesId", "DirectorId");
+
+                    b.HasIndex("DirectorId");
 
                     b.ToTable("DirectorMovies");
+
+                    b.HasData(
+                        new
+                        {
+                            MoviesId = 1,
+                            DirectorId = 1
+                        },
+                        new
+                        {
+                            MoviesId = 2,
+                            DirectorId = 2
+                        });
                 });
 
             modelBuilder.Entity("Project_Backend.Models.Movies", b =>
                 {
-                    b.Property<Guid>("ID")
+                    b.Property<int>("MoviesId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("DirectorId")
-                        .HasColumnType("uniqueidentifier");
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Genre")
                         .HasColumnType("nvarchar(max)");
@@ -86,27 +101,54 @@ namespace Project_Backend.Migrations
                     b.Property<DateTime>("ReleaseDate")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("ID");
+                    b.HasKey("MoviesId");
 
                     b.ToTable("Movies");
 
                     b.HasData(
                         new
                         {
-                            ID = new Guid("3eae78a9-8d42-4d18-8074-46df1531c9c5"),
-                            DirectorId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            MoviesId = 1,
                             Genre = "Romance",
                             Name = "Titanic",
                             ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
-                            ID = new Guid("f11bf32c-e978-4c39-a310-5d780505e791"),
-                            DirectorId = new Guid("00000000-0000-0000-0000-000000000000"),
+                            MoviesId = 2,
                             Genre = "Sci-Fi",
                             Name = "The Martian",
                             ReleaseDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
+                });
+
+            modelBuilder.Entity("Project_Backend.Models.DirectorMovies", b =>
+                {
+                    b.HasOne("Project_Backend.Models.Director", "Director")
+                        .WithMany("DirectorMovies")
+                        .HasForeignKey("DirectorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Project_Backend.Models.Movies", "Movies")
+                        .WithMany("DirectorMovies")
+                        .HasForeignKey("MoviesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Director");
+
+                    b.Navigation("Movies");
+                });
+
+            modelBuilder.Entity("Project_Backend.Models.Director", b =>
+                {
+                    b.Navigation("DirectorMovies");
+                });
+
+            modelBuilder.Entity("Project_Backend.Models.Movies", b =>
+                {
+                    b.Navigation("DirectorMovies");
                 });
 #pragma warning restore 612, 618
         }
