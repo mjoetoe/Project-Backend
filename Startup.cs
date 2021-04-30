@@ -13,6 +13,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Project_Backend.Configuration;
 using Project_Backend.Data;
+using Project_Backend.Repositories;
+using Project_Backend.Services;
 
 namespace Project_Backend
 {
@@ -49,6 +51,12 @@ namespace Project_Backend
                         .AllowAnyMethod();
                 });
             });
+            services.AddTransient<IMovieContext,MovieContext>();
+            services.AddTransient<IMovieRepository,MovieRepository>();
+            services.AddTransient<IDirectorRepository,DirectorRepository>();
+            services.AddTransient<IMovieService,MovieService>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

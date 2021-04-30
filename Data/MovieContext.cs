@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -8,7 +10,16 @@ using Project_Backend.Models;
 
 namespace Project_Backend.Data
 {
-    public class MovieContext: DbContext
+
+    public interface IMovieContext
+    {
+        DbSet<Movies> Movies { get; set; }
+        DbSet<Director> Directors { get; set; }
+        DbSet<DirectorMovies> DirectorMovies { get; set; }
+
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+    }
+    public class MovieContext: DbContext, IMovieContext
     {
         public DbSet<Movies> Movies { get; set; }
         public DbSet<Director> Directors { get; set; }
