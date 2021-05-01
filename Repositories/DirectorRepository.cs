@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Project_Backend.Data;
@@ -11,7 +12,12 @@ namespace Project_Backend.Repositories
     {
         Task<Director> AddDirector(Director Director);
         
-        Task<List<Director>> GetDirector();
+        Task<List<Director>> GetDirectors();
+
+        Task<Director> GetDirector(int DirectorId);
+
+        Task DeleteDirector(int DirectorId);
+
     }
     public class DirectorRepository : IDirectorRepository
     {
@@ -22,7 +28,7 @@ namespace Project_Backend.Repositories
             _context = context;
         }
 
-        public async Task<List<Director>> GetDirector()
+        public async Task<List<Director>> GetDirectors()
         {
             return await _context.Directors.ToListAsync();
         }
@@ -32,6 +38,19 @@ namespace Project_Backend.Repositories
             await _context.Directors.AddAsync(director);
             await _context.SaveChangesAsync();
             return director;
+        }
+
+        public async Task<Director> GetDirector(int DirectorId)
+        {
+            return await _context.Directors.Where(d => d.DirectorId == DirectorId).SingleOrDefaultAsync();
+        }
+
+        public async Task DeleteDirector(int DirectorId)
+        {
+            var director = _context.Directors.Where(d => d.DirectorId == DirectorId).SingleOrDefault();
+            if(director != null)
+            _context.Directors.Remove(director);
+            await _context.SaveChangesAsync();
         }
     }
 }

@@ -15,7 +15,7 @@ using Project_Backend.Configuration;
 using Project_Backend.Data;
 using Project_Backend.Repositories;
 using Project_Backend.Services;
-
+using AutoMapper;
 namespace Project_Backend
 {
     public class Startup
@@ -30,6 +30,8 @@ namespace Project_Backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAutoMapper(typeof(Startup));
+
             services.Configure<ConnectionStrings>(Configuration.GetSection("ConnectionStrings"));
             
             services.AddDbContext<MovieContext>();
@@ -55,20 +57,20 @@ namespace Project_Backend
             services.AddTransient<IMovieRepository,MovieRepository>();
             services.AddTransient<IDirectorRepository,DirectorRepository>();
             services.AddTransient<IMovieService,MovieService>();
-
+            
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Project_Backend v1"));
-            }
-
+            // if (env.IsDevelopment())
+            // {
+                
+            // }
+            app.UseDeveloperExceptionPage();
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Project_Backend v1"));
             app.UseHttpsRedirection();
 
             app.UseRouting();
