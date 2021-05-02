@@ -7,8 +7,8 @@ namespace Project_Backend.DTO
     {
         public AutoMapping(){
 
-            CreateMap<Movies,MoviesDTO>();
-            CreateMap<Director,DirectorDTO>();
+            CreateMap<MoviesDTO,Movies>();
+            CreateMap<DirectorDTO,Director>();
         }
     }
 }

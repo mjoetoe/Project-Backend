@@ -16,6 +16,8 @@ using Project_Backend.Data;
 using Project_Backend.Repositories;
 using Project_Backend.Services;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+
 namespace Project_Backend
 {
     public class Startup
@@ -37,6 +39,13 @@ namespace Project_Backend
             services.AddDbContext<MovieContext>();
 
             services.AddControllers();
+            services.AddAuthentication(option => {
+                option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options => {
+                options.Authority = "https://dev-33icjfpj.eu.auth0.com/";
+                options.Audience = "https://weatherapi";
+            });
 
             services.AddSwaggerGen(c =>
             {
@@ -75,8 +84,9 @@ namespace Project_Backend
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
-
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

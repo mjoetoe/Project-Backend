@@ -20,6 +20,7 @@ namespace Project_Backend.Services
         Task<DirectorDTO> AddDirector(DirectorDTO director);
 
         Task DeleteDirector(int DirectorId);
+
     }
     public class MovieService : IMovieService
     {
@@ -117,5 +118,7 @@ namespace Project_Backend.Services
                 throw ex;
             }
         }
+    
+    
     }
 }

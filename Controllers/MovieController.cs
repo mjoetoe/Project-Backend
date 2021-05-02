@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -12,6 +13,7 @@ using Project_Backend.Services;
 
 namespace Project_Backend.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api")]
     public class MovieController : ControllerBase
@@ -26,6 +28,7 @@ namespace Project_Backend.Controllers
             _movieService = movieService;
         }
 
+        [AllowAnonymous]
         [HttpGet]
         [Route("movies")]
         
@@ -38,7 +41,7 @@ namespace Project_Backend.Controllers
                 return new StatusCodeResult(500);
             }
         }
-        
+        [AllowAnonymous]
         [HttpGet]
         [Route("movies/{MovieId}")]
         
@@ -51,7 +54,8 @@ namespace Project_Backend.Controllers
                 return new StatusCodeResult(500);
             }
         }
-
+        
+        [AllowAnonymous]
         [HttpGet]
         [Route("director")]
         
@@ -64,7 +68,8 @@ namespace Project_Backend.Controllers
                 return new StatusCodeResult(500);
             }
         }
-
+        
+        [AllowAnonymous]
         [HttpGet]
         [Route("director/{DirectorId}")]
         
@@ -77,7 +82,8 @@ namespace Project_Backend.Controllers
                 return new StatusCodeResult(500);
             }
         }
-
+        
+        [AllowAnonymous]
         [HttpPost]
         [Route("movies")]
         public async Task<ActionResult<MoviesDTO>> AddMovie(MoviesDTO movie)
@@ -92,8 +98,22 @@ namespace Project_Backend.Controllers
             }
         }
 
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("director")]
+        public async Task<ActionResult<DirectorDTO>> AddDirector(DirectorDTO director)
+        {
+            try
+            {
+                return new OkObjectResult(await _movieService.AddDirector(director));
+            }
+            catch(System.Exception ex)
+            {
+                return new StatusCodeResult(500);
+            }
+        }
         
-
+        // AUTH0 Token nodig voor delete te doen 
         [HttpDelete]
         [Route("movies/{MovieId}")]
         public async Task<ActionResult> DeleteMovie(int MovieId)
@@ -121,18 +141,6 @@ namespace Project_Backend.Controllers
         }
 
 
-        [HttpPost]
-        [Route("director")]
-        public async Task<ActionResult<DirectorDTO>> AddDirector(DirectorDTO director)
-        {
-            try
-            {
-                return new OkObjectResult(await _movieService.AddDirector(director));
-            }
-            catch(System.Exception ex)
-            {
-                return new StatusCodeResult(500);
-            }
-        }
+        
     }
 }

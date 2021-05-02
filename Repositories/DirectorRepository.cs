@@ -17,7 +17,6 @@ namespace Project_Backend.Repositories
         Task<Director> GetDirector(int DirectorId);
 
         Task DeleteDirector(int DirectorId);
-
     }
     public class DirectorRepository : IDirectorRepository
     {
@@ -52,5 +51,7 @@ namespace Project_Backend.Repositories
             _context.Directors.Remove(director);
             await _context.SaveChangesAsync();
         }
+
+        
     }
 }
