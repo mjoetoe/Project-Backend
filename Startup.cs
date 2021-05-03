@@ -62,6 +62,7 @@ namespace Project_Backend
                         .AllowAnyMethod();
                 });
             });
+            
             services.AddTransient<IMovieContext,MovieContext>();
             services.AddTransient<IMovieRepository,MovieRepository>();
             services.AddTransient<IDirectorRepository,DirectorRepository>();

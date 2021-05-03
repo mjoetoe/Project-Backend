@@ -38,7 +38,7 @@
           "lib/netstandard2.0/Humanizer.dll": {}
         }
       },
-      "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.1": {
+      "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.5": {
         "type": "package",
         "dependencies": {
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.7.1"
@@ -48,21 +48,6 @@
         },
         "runtime": {
           "lib/net5.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
-      "Microsoft.AspNetCore.Authentication.OpenIdConnect/5.0.1": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "6.7.1"
-        },
-        "compile": {
-          "lib/net5.0/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll": {}
-        },
-        "runtime": {
-          "lib/net5.0/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
@@ -1568,10 +1553,10 @@
         "logo.png"
       ]
     },
-    "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.1": {
-      "sha512": "BGCA7V2+x6gjzZcOLfn1UYTicTBbK1kMVsoV56qiVc2+zpdEc62YPbLCC7jBUpjCeS9w/5FkGMkjvtwCarH7hg==",
+    "Microsoft.AspNetCore.Authentication.JwtBearer/5.0.5": {
+      "sha512": "wivdSSc+S+bNIWj/nUlpfNnpTnj5O+33NqXKiDlHFYaO2J6whRqNsGXlJ+UViKUzKMIDvj4K67W+dmVywUyXiw==",
       "type": "package",
-      "path": "microsoft.aspnetcore.authentication.jwtbearer/5.0.1",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/5.0.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1579,23 +1564,8 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net5.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
         "lib/net5.0/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
-        "microsoft.aspnetcore.authentication.jwtbearer.5.0.1.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.5.0.5.nupkg.sha512",
         "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
-      ]
-    },
-    "Microsoft.AspNetCore.Authentication.OpenIdConnect/5.0.1": {
-      "sha512": "bZZrUvT54W3lKQiP7e/11e2h76Qk81bG5TlqLB7tOTg02Uc02dYpbm6488NwmeKfSfO8Pto8rPwy5aq2rFRSgA==",
-      "type": "package",
-      "path": "microsoft.aspnetcore.authentication.openidconnect/5.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "THIRD-PARTY-NOTICES.TXT",
-        "lib/net5.0/Microsoft.AspNetCore.Authentication.OpenIdConnect.dll",
-        "lib/net5.0/Microsoft.AspNetCore.Authentication.OpenIdConnect.xml",
-        "microsoft.aspnetcore.authentication.openidconnect.5.0.1.nupkg.sha512",
-        "microsoft.aspnetcore.authentication.openidconnect.nuspec"
       ]
     },
     "Microsoft.AspNetCore.Mvc.Versioning/5.0.0-preview.2": {
@@ -5639,8 +5609,7 @@
     "net5.0": [
       "AutoMapper >= 10.1.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 8.1.1",
-      "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.1",
-      "Microsoft.AspNetCore.Authentication.OpenIdConnect >= 5.0.1",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 5.0.5",
       "Microsoft.AspNetCore.Mvc.Versioning >= 5.0.0-preview.2",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.5",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.3",
@@ -5701,17 +5670,7 @@
           },
           "Microsoft.AspNetCore.Authentication.JwtBearer": {
             "target": "Package",
-            "version": "[5.0.1, )",
-            "noWarn": [
-              "NU1605"
-            ]
-          },
-          "Microsoft.AspNetCore.Authentication.OpenIdConnect": {
-            "target": "Package",
-            "version": "[5.0.1, )",
-            "noWarn": [
-              "NU1605"
-            ]
+            "version": "[5.0.5, )"
           },
           "Microsoft.AspNetCore.Mvc.Versioning": {
             "target": "Package",

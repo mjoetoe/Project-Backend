@@ -1,14 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "zAN/HaWT2BWaqPSE12JyzN2KIb2KXgefKHEz6Xspu/H8sjHIj8gBZoxBig3e/1zbtjG4Al6lPE/YCXK0eo/Mvg==",
+  "dgSpecHash": "+UAX7d5HMPtStYrHBoSOKjn+rR6ssUL2NmpKFLo2GW5Fh/GY8/6D0XhyX/8GCOANGs14oBORnCrp4VSLx/1aBg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Douwe\\Documents\\GitHub\\Project-Backend\\Project-Backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Douwe\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Douwe\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\Douwe\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
-    "C:\\Users\\Douwe\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.1\\microsoft.aspnetcore.authentication.jwtbearer.5.0.1.nupkg.sha512",
-    "C:\\Users\\Douwe\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\5.0.1\\microsoft.aspnetcore.authentication.openidconnect.5.0.1.nupkg.sha512",
+    "C:\\Users\\Douwe\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.5\\microsoft.aspnetcore.authentication.jwtbearer.5.0.5.nupkg.sha512",
     "C:\\Users\\Douwe\\.nuget\\packages\\microsoft.aspnetcore.mvc.versioning\\5.0.0-preview.2\\microsoft.aspnetcore.mvc.versioning.5.0.0-preview.2.nupkg.sha512",
     "C:\\Users\\Douwe\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Douwe\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

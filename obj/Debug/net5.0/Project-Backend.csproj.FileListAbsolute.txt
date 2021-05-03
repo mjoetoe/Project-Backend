@@ -30,7 +30,6 @@ C:\Users\Douwe\Documents\GitHub\Project-Backend\obj\Debug\net5.0\Project-Backend
 C:\Users\Douwe\Documents\GitHub\Project-Backend\bin\Debug\net5.0\appsettings.Docker.json
 C:\Users\Douwe\Documents\GitHub\Project-Backend\bin\Debug\net5.0\Humanizer.dll
 C:\Users\Douwe\Documents\GitHub\Project-Backend\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
-C:\Users\Douwe\Documents\GitHub\Project-Backend\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.OpenIdConnect.dll
 C:\Users\Douwe\Documents\GitHub\Project-Backend\bin\Debug\net5.0\Microsoft.AspNetCore.Mvc.Versioning.dll
 C:\Users\Douwe\Documents\GitHub\Project-Backend\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
 C:\Users\Douwe\Documents\GitHub\Project-Backend\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
